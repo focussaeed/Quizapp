@@ -106,13 +106,23 @@ function nextQuestion() {
 
          button.disabled = true;
          clearInterval();
-
-        Swal.fire(
-            'Good job!',
-        `Your percentage is ${((score / questions.length)*100).toFixed(2)}`,
-            'success'
-          )
-         
+        
+       if (score >= 7) {
+            Swal.fire(
+                'Very Good job!',
+            `Your percentage is ${((score / questions.length)*100).toFixed(2)}`,
+                'success')             
+        } else if (score >= 5 && score < 7 ) {
+            Swal.fire(
+                'Good job!',
+            `Your percentage is ${((score / questions.length)*100).toFixed(2)}`,
+                'success') 
+            } else if (score < 5) {
+                Swal.fire(
+                    'Sorry!',
+                `Your percentage is ${((score / questions.length)*100).toFixed(2)}`,
+                    'warning')
+       }
         } 
 
         else {
